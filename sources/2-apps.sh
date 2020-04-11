@@ -4,7 +4,7 @@ pinfo "Installing Required Packages"
 brew bundle --file=- <<EOF
     tap "homebrew/bundle"
     tap "homebrew/core"
-    tap "caskroom/versions" # Alternate versions of software
+    tap "homebrew/cask-versions" # Alternate versions of software
     #tap "caskroom/fonts"    # Powerline fonts
 
     # Backup
@@ -48,7 +48,7 @@ brew bundle --file=- <<EOF
     cask 'gas-mask'        # manage hosts files
     cask 'jetbrains-toolbox'
     cask 'postman'         # RESTful calls
-    cask 'etcher'          # For restoring usb flash images
+#    cask 'etcher'          # For restoring usb flash images
     cask 'tunnelblick'
     brew 'jsonnet'         # Making JSON easier??
     brew 'node'
