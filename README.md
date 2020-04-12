@@ -19,7 +19,7 @@ Based on https://github.com/stjohnjohnson/stunning-potato
 ## Usage
 
 ```bash
-$ curl -L -o backup.zip https://github.com/gandazgul/mac-backup/archive/master.zip
+$ curl -L -o backup.zip https://github.com/cybervoid/mac-backup/archive/master.zip
 $ unzip backup.zip
 $ pushd mac-backup-master
 $ ./restore.sh
