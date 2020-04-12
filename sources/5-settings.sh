@@ -11,10 +11,10 @@ pinfo "General UI/UX"
 ###############################################################################
 
 pnotice "Set computer name (as done via System Preferences → Sharing)"
-sudo scutil --set ComputerName "gandazgul-mbp"
-sudo scutil --set HostName "gandazgul-mbp"
-sudo scutil --set LocalHostName "gandazgul-mbp"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "gandazgul-mbp"
+sudo scutil --set ComputerName "rafag-mbp"
+sudo scutil --set HostName "rafag-mbp"
+sudo scutil --set LocalHostName "rafag-mbp"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "rafag-mbp"
 
 pnotice "Expand save panel by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true

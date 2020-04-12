@@ -4,6 +4,7 @@ Bootstrap script to restore my Mac
 
 Based on https://github.com/stjohnjohnson/stunning-potato
 
+If you are installing apps from the app store, login to it first
 ## Flow
 
 1. Install Homebrew
