@@ -1,5 +1,9 @@
 #!/bin/bash -e
 
+pinfo "Setup App Store and ask for password now"
+open -a "App Store"
+prompt
+
 if command -v brew 2> /dev/null; then
     pnotice "Homebrew is already installed updating"
     brew update
