@@ -63,6 +63,7 @@ brew bundle --file=- <<EOF
     brew 'screen'          # Just in case
     cask 'appcleaner'      # Help removing stuff
     cask 'flux'           # Sleep better
+    cask 'visual-studio-code'
 
     # Gaming
     cask 'steam'          # So I can play games

@@ -7,7 +7,7 @@ prompt
 
 pinfo "Restoring Mackup Configuration"
 if [ ! -f ~/.mackup.cfg ]; then
-    ln -s ~/Documents/work/dotfiles/mackup-backup/.mackup.cfg ~/.mackup.cfg
-    ln -s ~/Documents/work/dotfiles/mackup-backup/.mackup ~/.mackup
+    ln -s ~/Documents/backup/mackup-backup/.mackup.cfg ~/.mackup.cfg
+    ln -s ~/Documents/backup/mackup-backup/.mackup ~/.mackup
 fi
 mackup restore
