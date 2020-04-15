@@ -11,3 +11,4 @@ if [ ! -f ~/.mackup.cfg ]; then
     ln -s ~/Documents/backup/mackup-backup/.mackup ~/.mackup
 fi
 mackup restore
+ln -s ~/Documents/backup/mackup-backup/.zprezto ~/.zpresto
