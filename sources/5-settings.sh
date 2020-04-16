@@ -56,6 +56,15 @@ defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
 defaults write NSGlobalDomain AppleMetricUnits -bool false
 
+###############################################################################
+# Date & Time                   	                                      #
+###############################################################################
+
+echo "Configuring date and time preferences"
+
+# Show date on the menu bar
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM  HH:mm"
+
 pnotice "Set the timezone; see 'sudo systemsetup -listtimezones' for other values"
 sudo systemsetup -settimezone "America/New_York" > /dev/null
 
@@ -255,6 +264,60 @@ pnotice "Sort Activity Monitor results by CPU usage"
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+defaults write com.apple.Siri StatusMenuVisible -bool false
+
+# Change screensaver to random
+defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName Random path /System/Library/Screen\ Savers/Random.saver type 8
+
+# Show screensaver with Clock
+defaults -currentHost write com.apple.screensaver showClock -bool true
+
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Turn on firewall
+sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+
+# Don't show mirroring options in menu bar
+defaults write com.apple.airplay showInMenuBarIfPresent -bool false
+
+## show icons in the menu bar
+defaults write com.apple.systemuiserver menuExtras -array \
+	"/System/Library/CoreServices/Menu Extras/Volume.menu" \
+	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
+	"/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
+
+###############################################################################
+# Keyboard                       	                                      #
+###############################################################################
+
+echo "Configuring keyboard preferences"
+
+# Enable full keyboard access for all controls
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Don't adjust keyboard brightness on low light
+# defaults write com.apple.BezelServices kDim -bool true
+
+# Turn keyboard backlight off after 30 secs of inactivity
+defaults write com.apple.BezelServices kDimTime -int 30
+
+# Disable auto-correct spelling automatically
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Set a fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+
 ###############################################################################
 pinfo "Address Book, Dashboard, iCal, TextEdit, and Disk Utility"
 ###############################################################################
@@ -285,6 +348,10 @@ defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
 pnotice "Install System data files & security updates"
 defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
+# Prefer tabs when opening documents always
+defaults write ~/Library/Preferences/.GlobalPreferences.plist AppleWindowTabbingMode -string "always"
+
+
 pnotice "Automatically download apps purchased on other Macs"
 defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
 
@@ -293,6 +360,16 @@ defaults write com.apple.commerce AutoUpdate -bool true
 
 pnotice "Allow the App Store to reboot machine on macOS updates"
 defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
+
+###############################################################################
+# Time Machine                   	                                      #
+###############################################################################
+
+echo "Configuring time machine preferences"
+
+# Prevent Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
 
 ###############################################################################
 pinfo "Google Chrome & Google Chrome Canary"
@@ -309,3 +386,18 @@ defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls
 pnotice "Expand the print dialog by default"
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
+
+###############################################################################
+# Extras                        	                                      #
+###############################################################################
+
+echo "Configuring extra preferences"
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+# Create local database to enable locate/find commands to search on the system
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist

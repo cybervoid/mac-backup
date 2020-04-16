@@ -38,6 +38,9 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# search for system updates and install them
+sudo softwareupdate —i -a
+
 pinfo "Creating local folders"
 mkdir -p ~/.bin ~/Sites
 
