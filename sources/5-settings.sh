@@ -11,10 +11,10 @@ pinfo "General UI/UX"
 ###############################################################################
 
 pnotice "Set computer name (as done via System Preferences → Sharing)"
-sudo scutil --set ComputerName "gandazgul-mbp"
-sudo scutil --set HostName "gandazgul-mbp"
-sudo scutil --set LocalHostName "gandazgul-mbp"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "gandazgul-mbp"
+sudo scutil --set ComputerName "kaliosx"
+sudo scutil --set HostName "kaliosx"
+sudo scutil --set LocalHostName "kaliosx"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "kaliosx"
 
 pnotice "Expand save panel by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
