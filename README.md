@@ -21,7 +21,7 @@ Based on https://github.com/stjohnjohnson/stunning-potato
 ```bash
 $ curl -L -o backup.zip https://github.com/cybervoid/mac-backup/archive/refs/heads/live.zip
 $ unzip backup.zip
-$ pushd mac-backup-master
+$ pushd mac-backup-live
 $ ./restore.sh
 ```
 

@@ -44,7 +44,7 @@ brew bundle --file=- <<EOF
     # Communication
     cask 'whatsapp'       # To see everyone's group chats
     cask 'discord'        # To chat while gaming
-    brew 'android-messages' # texting from the laptop!
+    cask 'zoom'
 
     # Editors
     cask 'visual-studio-code' # Best quick editor
@@ -87,15 +87,20 @@ brew bundle --file=- <<EOF
 
     # Gaming
     cask 'steam'          # So I can play games
+    cask 'ultimaker-cura'
+    cask 'slack'
+    cask 'mqttx'
+    cask 'kubecontext'
+    cask 'mysqlworkbench'
+    cask 'bitwarden'
+    cask 'microsoft-office'
 
     # Pretty
     cask 'aerial' # best screensaver
+    cask 'lens' # best screensaver
+    cask 'microsoft-office'
+    cask 'microsoft-remote-desktop'
 
-    # Apple Store Apps
-    brew 'mas'
-    mas 'Magnet', id: 441258766
-    mas 'Microsoft Remote Desktop', id: 1295203466
-    mas "Sequel Ace", id: 1518036000
 EOF
 
 brew cleanup
