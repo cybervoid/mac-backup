@@ -62,6 +62,7 @@ brew bundle --file=- <<EOF
     brew 'yarn'            # Javascript deps
     brew 'go'              # Not Javascript also Not c++ :)
     # brew "nginx"           # Reverse proxy
+
     
     # The CLOUUUUD!!!
     cask 'google-cloud-sdk' # google
@@ -86,6 +87,7 @@ brew bundle --file=- <<EOF
 
     # Pretty
     cask 'aerial' # best screensaver
+    cask 'notion'
 
     # Apple Store Apps
     brew 'mas'
