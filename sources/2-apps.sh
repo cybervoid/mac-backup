@@ -15,7 +15,8 @@ brew bundle --file=- <<EOF
     cask 'warp'           # Doing things on a terminal
     brew 'bash'           # macos version is different
     brew 'zsh'            # Not bash
-
+    brew zsh-completions
+    
     # Generally useful things
     brew 'coreutils'      # All those cool GNU things
     brew 'git'            # Collaborating
