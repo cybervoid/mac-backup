@@ -16,7 +16,7 @@ brew bundle --file=- <<EOF
     brew 'bash'           # macos version is different
     brew 'zsh'            # Not bash
     brew zsh-completions
-    
+
     # Generally useful things
     brew 'coreutils'      # All those cool GNU things
     brew 'git'            # Collaborating
@@ -70,6 +70,7 @@ brew bundle --file=- <<EOF
     # Productivity
     cask 'vlc'             # Watching movies
     cask 'google-chrome'   # Browsing the web
+    cask 'brave-browser'
     cask 'firefox'         # Browsing the web
     cask "microsoft-edge"  # Browsing the web
     brew 'screen'          # Just in case
