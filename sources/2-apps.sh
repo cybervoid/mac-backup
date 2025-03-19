@@ -32,6 +32,8 @@ brew bundle --file=- <<EOF
     brew 'telnet'         # Handy sometimes
     brew "rs/tap/jaggr"   # Json aggregator
     brew "rs/tap/jplot"   # Json plotter
+    brew "monitorcontrol"
+
 
     # Communication
     cask 'whatsapp'       # To see everyone's group chats
