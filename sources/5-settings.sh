@@ -3,7 +3,7 @@
 # ~/.macos — https://mths.be/macos
 
 # Close any open System Preferences panes, to prevent them from overriding
-# settings we’re about to change
+# settings we're about to change
 osascript -e 'tell application "System Preferences" to quit'
 
 ###############################################################################
@@ -27,7 +27,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 pnotice "Save to disk (not to iCloud) by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-pnotice "Disable the “Are you sure you want to open this application?” dialog"
+pnotice "Disable the "Are you sure you want to open this application?" dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Automatically quit printer app once the print jobs complete
@@ -54,7 +54,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
-pnotice "Disable “natural” (Lion-style) scrolling"
+pnotice "Disable "natural" (Lion-style) scrolling"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 pnotice "Set language and text formats"
@@ -64,7 +64,7 @@ defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
 defaults write NSGlobalDomain AppleMetricUnits -bool false
 
 pnotice "Set the timezone; see 'sudo systemsetup -listtimezones' for other values"
-sudo systemsetup -settimezone "America/New_York" > /dev/null
+sudo -n systemsetup -settimezone "America/New_York" > /dev/null
 
 ###############################################################################
 pinfo "Screen"
@@ -135,7 +135,7 @@ pnotice "Show the /Volumes folder"
 sudo chflags nohidden /Volumes
 
 pnotice "Expand the following File Info panes"
-# “General”, “Open with”, and “Sharing & Permissions”
+# "General", "Open with", and "Sharing & Permissions"
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	General -bool true \
 	OpenWith -bool true \
@@ -157,16 +157,16 @@ defaults write com.apple.dock show-recents -bool false            # Show recent 
 pnotice "Speed up Mission Control animations"
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
-pnotice "Don’t group windows by application in Mission Control"
+pnotice "Don't group windows by application in Mission Control"
 defaults write com.apple.dock expose-group-by-app -bool false
 
 pnotice "Disable Dashboard"
 defaults write com.apple.dashboard mcx-disabled -bool true
 
-pnotice "Don’t show Dashboard as a Space"
+pnotice "Don't show Dashboard as a Space"
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
-pnotice "Don’t automatically rearrange Spaces based on most recent use"
+pnotice "Don't automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces -bool false
 
 pnotice "Automatically hide and show the Dock"
@@ -238,12 +238,15 @@ defaults write com.apple.spotlight orderedItems -array \
 pinfo "Terminal & iTerm 2"
 ###############################################################################
 
-pnotice "Only use UTF-8 in Terminal.app"
-defaults write com.apple.terminal StringEncodings -array 4
+pnotice "Quit Terminal.app to allow settings changes"
+osascript -e 'quit app "Terminal"'
 
-pnotice "Enable Secure Keyboard Entry in Terminal.app"
+# pnotice "Only use UTF-8 in Terminal.app"
+# defaults write com.apple.terminal StringEncodings -array 4
+
+# pnotice "Enable Secure Keyboard Entry in Terminal.app"
 # See: https://security.stackexchange.com/a/47786/8918
-defaults write com.apple.terminal SecureKeyboardEntry -bool true
+# defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 ###############################################################################
 pinfo "Activity Monitor"

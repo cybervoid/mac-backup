@@ -79,6 +79,7 @@ brew bundle --file=- <<EOF
     brew 'screen'          # Just in case
     cask "recordit"        # Screen recordings
     cask "the-unarchiver"  # Uncompress anything
+    cask "tigervnc-viewer" # VNC viewer
 
     # Gaming
     cask 'steam'          # So I can play games
