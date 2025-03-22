@@ -80,6 +80,7 @@ brew bundle --file=- <<EOF
     cask "recordit"        # Screen recordings
     cask "the-unarchiver"  # Uncompress anything
     cask "tigervnc-viewer" # VNC viewer
+    cask "transmission-remote-gui"
 
     # Gaming
     cask 'steam'          # So I can play games
