@@ -33,6 +33,8 @@ brew bundle --file=- <<EOF
     brew "rs/tap/jaggr"   # Json aggregator
     brew "rs/tap/jplot"   # Json plotter
     brew "monitorcontrol"
+    brew "kubeseal"
+    brew headlamp
 
 
     # Communication
